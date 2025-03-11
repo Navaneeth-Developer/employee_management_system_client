@@ -9,7 +9,7 @@ const modalStyle = {
   width: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
+  p: 3,
 };
 
 const EmployeeModal = ({ open, onClose, onSave, initialData = {} }) => {

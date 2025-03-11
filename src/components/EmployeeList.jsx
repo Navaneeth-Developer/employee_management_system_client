@@ -76,7 +76,7 @@ const EmployeeList = () => {
               Email
             </TableCell>
             <TableCell style={{ fontWeight: "bold", fontSize: "16px" }}>
-              Job Title
+              Role
             </TableCell>
             <TableCell style={{ fontWeight: "bold", fontSize: "16px" }}>
               Salary
