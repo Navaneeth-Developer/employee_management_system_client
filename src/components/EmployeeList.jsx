@@ -16,7 +16,7 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
-import { Edit, Delete } from "@mui/icons-material";
+import { Edit, Delete, Add } from "@mui/icons-material";
 
 const EmployeeList = () => {
   const dispatch = useDispatch();
@@ -48,13 +48,22 @@ const EmployeeList = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           alignItems: "center",
         }}
       >
-        <h1>Employee Management System</h1>
+        {/* <h1>Employee Management System</h1> */}
         <Button variant="contained" onClick={handleAdd} style={{ height: 40 }}>
-          Add Employee
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Add Employee
+            <Add style={{ marginLeft: "2px", marginBottom: "2px" }} />
+          </span>
         </Button>
       </div>
       <Table>
