@@ -94,12 +94,20 @@ const EmployeeModal = ({ open, onClose, onSave, initialData = {} }) => {
           margin="normal"
           InputLabelProps={{ shrink: true }}
         /> */}
-          <Button onClick={handleSubmit} variant="contained" sx={{ mt: 2 }}>
-            Save
-          </Button>
-          <Button onClick={onClose} variant="contained" sx={{ mt: 2, ml: 1 }}>
-            Close
-          </Button>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Button onClick={handleSubmit} variant="contained" sx={{ mt: 2 }}>
+              Save
+            </Button>
+            <Button onClick={onClose} variant="contained" sx={{ mt: 2, ml: 1 }}>
+              Close
+            </Button>
+          </div>
         </Box>
       </Modal>
       <ToastContainer />
