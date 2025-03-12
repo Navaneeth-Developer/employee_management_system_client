@@ -16,6 +16,7 @@ import {
   IconButton,
   Button,
   Tooltip,
+  TextField,
 } from "@mui/material";
 import { Edit, Delete, Add } from "@mui/icons-material";
 
@@ -25,6 +26,7 @@ const EmployeeList = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     dispatch(fetchEmployees());
@@ -44,6 +46,11 @@ const EmployeeList = () => {
     setModalOpen(true);
   };
 
+  // Filter employees based on search term
+  const filteredList = list.filter((emp) =>
+    emp.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <div
@@ -51,9 +58,17 @@ const EmployeeList = () => {
           display: "flex",
           justifyContent: "flex-end",
           alignItems: "center",
+          marginBottom: "16px",
         }}
       >
-        {/* <h1>Employee Management System</h1> */}
+        <TextField
+          label="Search Employee"
+          variant="outlined"
+          size="small"
+          value={searchTerm}
+          sx={{ mr: 2 }}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <Button variant="contained" onClick={handleAdd} style={{ height: 40 }}>
           <span
             style={{
@@ -92,8 +107,8 @@ const EmployeeList = () => {
             <TableRow>
               <TableCell colSpan={5}>Loading...</TableCell>
             </TableRow>
-          ) : (
-            list.map((emp) => (
+          ) : filteredList.length > 0 ? (
+            filteredList.map((emp) => (
               <TableRow key={emp?.id}>
                 <TableCell>{emp?.name}</TableCell>
                 <TableCell>{emp?.email}</TableCell>
@@ -113,6 +128,10 @@ const EmployeeList = () => {
                 </TableCell>
               </TableRow>
             ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={5}>No employees found</TableCell>
+            </TableRow>
           )}
         </TableBody>
       </Table>
