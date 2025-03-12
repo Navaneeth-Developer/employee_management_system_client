@@ -55,8 +55,12 @@ const EmployeeList = () => {
 
   // Filter and paginate employees
   const filteredList = list.filter((emp) =>
-    emp?.name?.toLowerCase().includes(searchTerm?.toLowerCase())
+    Object.values(emp ?? {})
+      .map((value) => value?.toString().toLowerCase())
+      .join(" ")
+      .includes(searchTerm?.toLowerCase())
   );
+
   const paginatedList = filteredList.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
