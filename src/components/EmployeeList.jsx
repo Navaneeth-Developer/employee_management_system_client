@@ -15,6 +15,7 @@ import {
   TableCell,
   IconButton,
   Button,
+  Tooltip,
 } from "@mui/material";
 import { Edit, Delete, Add } from "@mui/icons-material";
 
@@ -93,18 +94,22 @@ const EmployeeList = () => {
             </TableRow>
           ) : (
             list.map((emp) => (
-              <TableRow key={emp.id}>
-                <TableCell>{emp.name}</TableCell>
-                <TableCell>{emp.email}</TableCell>
-                <TableCell>{emp.job_title}</TableCell>
-                <TableCell>{emp.salary}</TableCell>
+              <TableRow key={emp?.id}>
+                <TableCell>{emp?.name}</TableCell>
+                <TableCell>{emp?.email}</TableCell>
+                <TableCell>{emp?.job_title}</TableCell>
+                <TableCell>{emp?.salary}</TableCell>
                 <TableCell>
-                  <IconButton onClick={() => handleEdit(emp)}>
-                    <Edit />
-                  </IconButton>
-                  <IconButton onClick={() => handleDelete(emp.id)}>
-                    <Delete />
-                  </IconButton>
+                  <Tooltip arrow title="Edit">
+                    <IconButton onClick={() => handleEdit(emp)}>
+                      <Edit />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip arrow title="Delete">
+                    <IconButton onClick={() => handleDelete(emp.id)}>
+                      <Delete />
+                    </IconButton>
+                  </Tooltip>
                 </TableCell>
               </TableRow>
             ))

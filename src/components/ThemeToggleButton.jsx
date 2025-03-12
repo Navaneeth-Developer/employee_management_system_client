@@ -1,15 +1,17 @@
 import React from "react";
 import { useThemeContext } from "../context/ThemeContext";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
 
 const ThemeToggleButton = () => {
   const { mode, toggleTheme } = useThemeContext();
 
   return (
-    <Button onClick={toggleTheme} variant="contained">
-      {mode === "light" ? <DarkMode /> : <LightMode />}
-    </Button>
+    <Tooltip arrow title={mode === "light" ? "Light Mode" : "Dark Mode"}>
+      <Button onClick={toggleTheme} variant="contained">
+        {mode === "light" ? <DarkMode /> : <LightMode />}
+      </Button>
+    </Tooltip>
   );
 };
 
