@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <CssBaseline />
-      <Container maxWidth="lg" style={{ padding: "20px", marginTop: "20px" }}>
+      <Container maxWidth="lg" style={{ padding: "0px 20px" }}>
         <div
           style={{
             display: "flex",

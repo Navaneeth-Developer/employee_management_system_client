@@ -66,3 +66,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+/* Custom Stylish Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Set scrollbar width */
+  height: 6px; /* For horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    #6c63ff,
+    #b265f6
+  ); /* Gradient thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #b265f6, #6c63ff); /* Hover effect */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Lighter track color */
+  border-radius: 10px; /* Rounded track edges */
+  margin: 5px; /* Optional: add space between content and scrollbar */
+}
